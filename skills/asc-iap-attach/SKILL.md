@@ -219,19 +219,19 @@ curl -s -X DELETE \
 
 ## Complete Example
 
-Attach all ready subscriptions for app `6760430011`:
+Attach all ready subscriptions for an app:
 
 ```bash
 # 1. Authenticate web session
 asc web auth login --apple-id "user@example.com"
 
 # 2. List subscription groups and subscriptions
-asc subscriptions groups list --app "6760430011" --output table
+asc subscriptions groups list --app "APP_ID" --output table
 asc subscriptions list --group-id "GROUP_ID" --output table
 
 # 3. Attach each subscription (via asc web or curl)
-asc web review subscriptions attach --app "6760430011" --subscription-id "6760435895" --confirm
-asc web review subscriptions attach --app "6760430011" --subscription-id "6760437550" --confirm
+asc web review subscriptions attach --app "APP_ID" --subscription-id "SUB_ID_1" --confirm
+asc web review subscriptions attach --app "APP_ID" --subscription-id "SUB_ID_2" --confirm
 
 # 4. Verify
 asc subscriptions list --group-id "GROUP_ID" --output table
